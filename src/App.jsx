@@ -1,7 +1,15 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import HomePage from "./Pages/HomePage"
+
 function App () {
     return (
         <div>
-            <h1>asasa</h1>
+           <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<HomePage/>} />
+            
+                </Routes>
+           </BrowserRouter>
         </div>
     )
 }

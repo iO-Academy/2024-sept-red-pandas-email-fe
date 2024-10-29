@@ -1,3 +1,4 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 import OpenEmails from "./Components/OpenEmails"
 
@@ -5,7 +6,11 @@ function App () {
     return (
         <div>
             <h1>asasa</h1>
-            <OpenEmails />
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/emails/:id" element={<OpenEmails />} />
+                </Routes>
+        </BrowserRouter>
             
             
         </div>

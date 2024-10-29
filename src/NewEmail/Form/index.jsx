@@ -26,7 +26,7 @@ function Form() {
             setCancel(false)
 
             // Data sending to API
-            fetch("https://email-client-api.dev.io-academy.uk/", {
+            fetch("https://email-client-api.dev.io-academy.uk/email", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"

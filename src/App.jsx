@@ -1,5 +1,5 @@
 
-import OpenEmails from './Components/OpenEmails/Index'
+import OpenEmails from "./Components/OpenEmails"
 
 function App () {
     return (

@@ -1,23 +1,29 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import OpenEmails from "../../Components/OpenEmails"
 import { useEffect } from "react"
-import { Link, useParams } from "react-router-dom"
+
 
 function OpenEmailPage(){
 
-    const {id} = useParams()
-    
-        useEffect (() => {
-        fetch(`https://email-client-api.dev.io-academy.uk/emails/${id}`)
-        .then(res => res.json())
-        .then(data => {
-        //   setEmails(data.data)
-        console.log(data)
-      })
-    },[]) 
+        // const {id} = useParams()
+        
+        //     useEffect (() => {
+        //     fetch(`https://email-client-api.dev.io-academy.uk/emails/${id}`)
+        //     .then(res => res.json())
+        //     .then(data => {
+        //     //   setEmails(data.data)
+        //     console.log(data)
+        // })
+        // },[]) 
 
     return(
-        <div>
-            <h1>Email {id}</h1>
-        </div>
+        <BrowserRouter>
+            <Router>
+                <Routes>
+                    <Route path="/emails/:id" element={<OpenEmails />} />
+                </Routes>
+            </Router>
+        </BrowserRouter>
     )
 }
 export default OpenEmailPage

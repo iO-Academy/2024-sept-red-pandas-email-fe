@@ -5,7 +5,6 @@ import OpenEmails from "./Components/OpenEmails"
 function App () {
     return (
         <div>
-            <h1>asasa</h1>
             <BrowserRouter>
                 <Routes>
                     <Route path="/emails/:id" element={<OpenEmails />} />

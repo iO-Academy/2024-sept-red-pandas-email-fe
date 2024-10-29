@@ -27,14 +27,16 @@ function OpenEmails(){
     }, [id])
 
     return (
-        <div>
+        <div className="my-6 border-y-4 border-slate-100 px-6">
             
             {/* <li key={email.id} /> */}
-            <h4>From: {emailFromName}</h4>
-            <p>Date: {emailDate}</p>
-            <h5>Email: {emailFrom}</h5>
-            <h3>Subject: {emailSubject}</h3>
-            <p>{emailBody}</p>
+            <div className="pt-5 flex flex-row justify-between font-bold">
+                <h4 >{emailFromName}</h4>
+                <p className="">{emailDate}</p>
+            </div>
+            <h5 className="py-2 font-bold">{emailFrom}</h5>
+            <h3 className="text-2xl font-semibold">{emailSubject}</h3>
+            <p className="mb-4 pt-10 flex flex-row justify-start">{emailBody}</p>
         </div>
     )
 }

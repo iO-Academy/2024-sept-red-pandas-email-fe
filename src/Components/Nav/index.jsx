@@ -10,7 +10,7 @@ function Nav() {
    }
    return (
     <div>
-        <button onClick={handleClick}>{modalOpen ? '' : ''} MENU</button>
+        <button className='border px-3 rounded' onClick={handleClick}>{modalOpen ? '' : ''} MENU</button>
         {modalOpen && <NavLinks />} 
     </div>
    )

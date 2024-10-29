@@ -1,7 +1,10 @@
+import NewEmail from "./NewEmail/index.jsx";
+
 function App () {
     return (
         <div>
-            <h1>asasa</h1>
+            <NewEmail />
+
         </div>
     )
 }

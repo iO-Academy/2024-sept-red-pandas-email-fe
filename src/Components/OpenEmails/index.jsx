@@ -26,7 +26,7 @@ function OpenEmails(){
     }, [id])
 
     return (
-        <section className="my-6 border-y-4 border-slate-100 px-6">
+        <main className="my-6 border-y-4 border-slate-100 px-6">
             <div> <CloseEmailButton /> </div>
             <div className="pt-5 font-bold 
             flex flex-row justify-between">
@@ -36,7 +36,7 @@ function OpenEmails(){
             <h5 className="py-2 font-bold">{emailFrom}</h5>
             <h3 className="text-2xl font-semibold">{emailSubject}</h3>
             <p className="mb-4 pt-10 flex flex-row justify-start">{emailBody}</p>
-        </section>
+        </main>
     )
 }
 export default OpenEmails

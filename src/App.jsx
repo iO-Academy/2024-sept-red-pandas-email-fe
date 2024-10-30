@@ -1,7 +1,16 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom"
+import Header from "./Components/Header"
+import InboxSummary from "./Components/InboxSummary"
+
 function App () {
     return (
         <div>
-            <h1>asasa</h1>
+            <BrowserRouter>
+                <Header />
+                <Routes>
+                    <Route path="/" element={<InboxSummary/>} />
+                </Routes>
+           </BrowserRouter>
         </div>
     )
 }

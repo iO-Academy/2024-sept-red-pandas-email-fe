@@ -26,7 +26,7 @@ function Form() {
             setCancel(false)
 
             // Data sending to API
-            fetch("https://email-client-api.dev.io-academy.uk/email", {
+            fetch("https://email-client-api.dev.io-academy.uk/emails", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -53,11 +53,11 @@ function Form() {
 
     return (
         <div className=" text-black max-w-sm p-10 ">
-            <form className="flex flex-col space-y-4 gap-3 ml-3">
+            <form onSubmit={handleSend} className="flex flex-col space-y-4 gap-3 ml-3">
                 <label>
                     <input
                         placeholder="To"
-                        type="text"
+                        type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         className="w-96 p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/>
@@ -86,12 +86,10 @@ function Form() {
                         className="px-4 py-1.5 bg-gray-500 text-white rounded hover:bg-gray-600">
                         Cancel
                     </button>
-                    <button
-                        type="button"
-                        onClick={handleSend}
-                        className="px-4 py-1.5 bg-green-500 text-white rounded hover:bg-green-700">
-                        Send
-                    </button>
+                    <input
+                        type="submit"
+                        value={"Send"}
+                        className="px-4 py-1.5 bg-green-500 text-white rounded hover:bg-green-700" />
                 </div>
             </form>
             {/* Messages after pressing the Buttons */}

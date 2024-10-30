@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import OpenEmails from "./Components/OpenEmails"
+import OpenEmails from "./Pages/OpenEmailPage"
 
 function App () {
     return (

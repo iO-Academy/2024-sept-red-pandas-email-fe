@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
+import CloseEmailButton from "../CloseEmailButton"
 
 function OpenEmails(){
     // const [emails, setEmails] = useState ([])
@@ -30,6 +31,7 @@ function OpenEmails(){
         <div className="my-6 border-y-4 border-slate-100 px-6">
             
             {/* <li key={email.id} /> */}
+            <div> <CloseEmailButton /> </div>
             <div className="pt-5 flex flex-row justify-between font-bold">
                 <h4 >{emailFromName}</h4>
                 <p className="">{emailDate}</p>

@@ -1,20 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import HomePage from "./Pages/HomePage"
 import Header from "./Components/Header"
-import NewEmail from "./Pages/NewEmail/Index"
+import InboxSummary from "./Components/InboxSummary"
 
 function App () {
     return (
         <div>
-            
-           <BrowserRouter>
+            <BrowserRouter>
                 <Header />
                 <Routes>
-                    <Route path="/" element={<HomePage/>} />
-                    <Route path="/email" element={<NewEmail />} />
-                    {/* <Route path="/emails/:id" element={<OpenEmails />} /> */}
-                    {/* <Route path="/sent" element={<SentEmail />} />
-                    <Route path="/deleted" element={<DeletedEmail />} />  */}
+                    <Route path="/" element={<InboxSummary/>} />
                 </Routes>
            </BrowserRouter>
         </div>

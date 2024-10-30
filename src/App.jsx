@@ -1,5 +1,4 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-
 import OpenEmails from "./Components/OpenEmails"
 
 function App () {
@@ -9,11 +8,8 @@ function App () {
                 <Routes>
                     <Route path="/emails/:id" element={<OpenEmails />} />
                 </Routes>
-        </BrowserRouter>
-            
-            
+            </BrowserRouter>    
         </div>
     )
 }
-
 export default App

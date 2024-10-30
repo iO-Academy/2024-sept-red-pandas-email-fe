@@ -7,12 +7,11 @@ const [emails, setEmails] = useState([])
 
 function getEmails() {
     fetch('https://email-client-api.dev.io-academy.uk/emails')
-  .then(res => res.json())
-  .then(data => {
-    console.log(data)
+    .then(res => res.json())
+    .then(data => {
+    setEmails(data.data)
   })
 }
-
 
 useEffect(getEmails, [])
 
@@ -20,8 +19,7 @@ useEffect(getEmails, [])
     return (
         <div>
             {emails.map(email => {
-                        return (
-                      
+                return (
                             <EmailSummary  
                                 key={email.email}
                                 name={email.name}
@@ -37,3 +35,4 @@ useEffect(getEmails, [])
 }
 
 export default InboxSummary
+

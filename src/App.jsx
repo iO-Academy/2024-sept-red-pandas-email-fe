@@ -12,8 +12,9 @@ function App () {
                 <Routes>
                     <Route path="/" element={<HomePage/>} />
                     <Route path="/email" element={<NewEmail />} />
+                    {/* <Route path="/emails/:id" element={<OpenEmails />} /> */}
                     {/* <Route path="/sent" element={<SentEmail />} />
-                    <Route path="/deleted" element={<DeletedEmail />} /> */}
+                    <Route path="/deleted" element={<DeletedEmail />} />  */}
                 </Routes>
            </BrowserRouter>
         </div>

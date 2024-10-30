@@ -4,9 +4,9 @@ function CloseEmailButton (){
 
     return (
         <div className="grid justify-items-end pt-4">
-            <button className="font-bold text-2xl border-4 border-red-600  px-1">
-                 <Link to="./pages/HomePage"> X </Link>
-        </button>
+            <button className="px-4 py-1.5 bg-gray-500 text-white rounded hover:bg-gray-600">
+                 <Link to="./pages/HomePage">Return to Inbox</Link>
+            </button>
         </div>
     )
 

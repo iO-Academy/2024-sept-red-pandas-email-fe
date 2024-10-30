@@ -54,37 +54,26 @@ function Form() {
     }
 
     return (
-        <div className=" text-black max-w-sm p-10 ">
+        <div className=" text-black p-10 ">
             <form onSubmit={handleSend} className="flex flex-col space-y-4 gap-3 ml-3">
             <label>
-                <div>
-                <TextInput placeholder="To"
+                <div className="max-w-4xl mx-auto w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
+                <TextInput 
+                        placeholder="To"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}> </TextInput>
                 </div>
-                    {/* <input
-                        placeholder="To"
-                        type="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        required
-                        className="w-96 p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/> */}
+                    
                 </label>
                 <label>
-                    <div>
+                    <div className="max-w-4xl mx-auto w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
                 <TextInput placeholder="Subject"
                         type="text"
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}></TextInput>
                         </div>
-                    {/* <input
-                        placeholder="Subject"
-                        type="text"
-                        value={subject}
-                        onChange={(e) => setSubject(e.target.value)}
-                        required
-                        className="w-96 p-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/> */}
+                    
                 </label>
                 <label>
                     <textarea
@@ -94,9 +83,9 @@ function Form() {
                         rows={20}
                         onChange={(e) => setTextArea(e.target.value)}
                         required
-                        className="w-96 p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/>
+                        className="p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500 max-w-4xl mx-auto w-full sm:w-3/4 md:w-2/3 lg:w-1/2"/>
                 </label>
-                <div className="flex justify-end space-x-2 mt-2 w-96">
+                <div className="flex justify-end space-x-2 mt-2">
                     <button
                         type="button"
                         onClick={handleCancel}

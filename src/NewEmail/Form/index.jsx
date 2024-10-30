@@ -2,6 +2,8 @@
 // Note for the next TEAM:2. In this Form component you will find The Form and the Buttons
 // Note for the next TEAM:3. You will find comments before Function for what are they and so on
 import {useState} from "react"
+import TextInput from "../../Components/TextInput"
+
 function Form() {
     const [email, setEmail] = useState("")
     const [subject, setSubject] = useState("")
@@ -54,23 +56,35 @@ function Form() {
     return (
         <div className=" text-black max-w-sm p-10 ">
             <form onSubmit={handleSend} className="flex flex-col space-y-4 gap-3 ml-3">
-                <label>
-                    <input
+            <label>
+                <div>
+                <TextInput placeholder="To"
+                        type="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}> </TextInput>
+                </div>
+                    {/* <input
                         placeholder="To"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
-                        className="w-96 p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/>
+                        className="w-96 p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/> */}
                 </label>
                 <label>
-                    <input
+                    <div>
+                <TextInput placeholder="Subject"
+                        type="text"
+                        value={subject}
+                        onChange={(e) => setSubject(e.target.value)}></TextInput>
+                        </div>
+                    {/* <input
                         placeholder="Subject"
                         type="text"
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}
                         required
-                        className="w-96 p-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/>
+                        className="w-96 p-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/> */}
                 </label>
                 <label>
                     <textarea

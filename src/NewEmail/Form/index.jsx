@@ -10,6 +10,7 @@ function Form() {
     const [textArea, setTextArea] = useState("")
     const [send, setSend] = useState(false)
     const [cancel, setCancel] = useState(false)
+    const [error, setError] = useState(false)
 
     // Function for cancel button ->
     const handleCancel = () => {
@@ -18,11 +19,11 @@ function Form() {
         setTextArea("")
         setCancel(true)
         setSend(false)
-        console.log("Cancel action ON")
     }
 
     // Function for Send button ->
-    const handleSend = () => {
+    const handleSend = (e) => {
+        e.preventDefault ()
         if (email.trim() && subject.trim() && textArea.trim()) {
             setSend(true)
             setCancel(false)
@@ -34,46 +35,46 @@ function Form() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    to: email,
+                    email: email,
                     subject: subject,
-                    content: textArea
+                    body: textArea,
+                    name: "MrBloggs",
                 })
             })
                 .then((response) => response.json())
                 .then((data) => {
-                    console.log("Answer API:", data)
                     setSend(true) // confirmation for sent data
+                    setError(false)
                 })
-                .catch((error) => {
-                    console.error("Error for data sent", error)
+                .catch(() => {
                     setSend(false)
                 })
         } else {
-            console.log("Complete forms before sending")
+            setError(true)
         }
     }
 
     return (
-        <div className=" text-black p-10 ">
+        <div className=" text-black p-10">
             <form onSubmit={handleSend} className="flex flex-col space-y-4 gap-3 ml-3">
             <label>
-                <div className="max-w-4xl mx-auto w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
+                <div>
                 <TextInput 
                         placeholder="To"
                         type="email"
                         value={email}
-                        onChange={(e) => setEmail(e.target.value)}> </TextInput>
+                        onChange={(e) => setEmail(e.target.value)}/>
                 </div>
                     
                 </label>
                 <label>
-                    <div className="max-w-4xl mx-auto w-full sm:w-3/4 md:w-2/3 lg:w-1/2">
-                <TextInput placeholder="Subject"
-                        type="text"
-                        value={subject}
-                        onChange={(e) => setSubject(e.target.value)}></TextInput>
-                        </div>
-                    
+                    <div>
+                        <TextInput 
+                            placeholder="Subject"
+                            type="text"
+                            value={subject}
+                            onChange={(e) => setSubject(e.target.value)}/>    
+                    </div>  
                 </label>
                 <label>
                     <textarea
@@ -83,7 +84,7 @@ function Form() {
                         rows={20}
                         onChange={(e) => setTextArea(e.target.value)}
                         required
-                        className="p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500 max-w-4xl mx-auto w-full sm:w-3/4 md:w-2/3 lg:w-1/2"/>
+                        className="p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500 w-full"/>
                 </label>
                 <div className="flex justify-end space-x-2 mt-2">
                     <button
@@ -101,7 +102,9 @@ function Form() {
             {/* Messages after pressing the Buttons */}
             {send && <p className="mt-4 text-green-600">Message sent!</p>}
             {cancel && <p className="mt-4 text-red-600">Form canceled</p>}
+            {error && <p className="mt-4 text-red-600">All fields are required</p>}
         </div>
     )
 }
+
 export default Form

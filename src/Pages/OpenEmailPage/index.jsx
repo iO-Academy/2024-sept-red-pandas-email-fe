@@ -28,7 +28,7 @@ function OpenEmails(){
     return (
         <main className="my-6 border-y-4 border-slate-100 px-6">
             <div className="grid justify-items-end pt-4"> 
-                <GreyButton link="/pages/HomePage" text="Return to Inbox"> 
+                <GreyButton link="/" text="Return to Inbox"> 
                 </GreyButton> 
             </div>
             <div className="pt-5 font-bold 

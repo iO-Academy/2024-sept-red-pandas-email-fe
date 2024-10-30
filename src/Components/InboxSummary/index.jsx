@@ -16,6 +16,9 @@ function InboxSummary () {
 
     return (
         <div>
+            <div className="h-16">
+
+            </div>
             {emails.map(email => {
                 return (
                     <EmailSummary  
@@ -24,6 +27,7 @@ function InboxSummary () {
                         subject={email.subject}
                         body={email.body}
                         date={email.date_created}
+                        read={email.read}
                     />
                 )
             })}

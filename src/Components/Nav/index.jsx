@@ -11,7 +11,7 @@ function Nav() {
     return (
         <div>
             <button className='border px-3 rounded' onClick={handleClick}>MENU</button>
-            {modalOpen && <NavLinks />} 
+            {modalOpen && <NavLinks handleClick={handleClick} />} 
         </div>
     )
 }

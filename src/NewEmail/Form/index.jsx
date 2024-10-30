@@ -60,6 +60,7 @@ function Form() {
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
+                        required
                         className="w-96 p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/>
                 </label>
                 <label>
@@ -68,6 +69,7 @@ function Form() {
                         type="text"
                         value={subject}
                         onChange={(e) => setSubject(e.target.value)}
+                        required
                         className="w-96 p-1.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/>
                 </label>
                 <label>
@@ -77,6 +79,7 @@ function Form() {
                         value={textArea}
                         rows={20}
                         onChange={(e) => setTextArea(e.target.value)}
+                        required
                         className="w-96 p-1.5 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-gray-400 placeholder-gray-500"/>
                 </label>
                 <div className="flex justify-end space-x-2 mt-2 w-96">

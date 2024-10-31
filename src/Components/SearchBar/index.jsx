@@ -1,21 +1,23 @@
 import { useEffect, useState } from "react"
+import InboxSummary from "../InboxSummary"
 
-function SearchBar ({}) {
 
-    const handleInputChange = (event) => {
-        setSearchTerm(event.target.value)
-    }
+function SearchBar () {
+    // const [searchTerm, setSearchTerm] = useState("")
+    // const handleInputChange = (event) => {
+    //     setSearchTerm(event.target.value)
+    // }
 
-   useEffect(() => {
-        if (searchTerm) {
-            fetch(`https://email-client-api.dev.io-academy.uk/emails?search=${searchTerm}`)
-                .then(res => res.json())
-                .then(data => {
-                    setResults(data)
+//    useEffect(() => {
+//         if (searchTerm) {
+//             fetch(`https://email-client-api.dev.io-academy.uk/emails?search=${searchTerm}`)
+//                 .then(res => res.json())
+//                 .then(data => {
+//                     setResults(data)
                    
-                })
-        }
-    }, [searchTerm])
+//                 })
+//         }
+//     }, [searchTerm])
     
     return (
         <form className="pt-2 m-4">
@@ -28,6 +30,7 @@ function SearchBar ({}) {
         value={searchTerm}
         onChange={handleInputChange}/>
         </form>
+        
     )
 }
 

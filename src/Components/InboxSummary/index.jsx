@@ -4,11 +4,12 @@ import EmailSummary from "../EmailSummary"
 function InboxSummary () {
     const [emails, setEmails] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
+
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value)
-        }  
+        }
 
-function getEmails() {
+    function getEmails() {
         fetch('https://email-client-api.dev.io-academy.uk/emails')
         .then(res => res.json())
         .then(data => {
@@ -16,25 +17,29 @@ function getEmails() {
         })
     }
 
-useEffect(getEmails, [])
+    useEffect(getEmails, [])
+
     const filteredEmails = emails.filter(email =>
         email.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         email.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
         email.body.toLowerCase().includes(searchTerm.toLowerCase())
-    )
+    );
 
     return (
         <div>
             <form className="pt-2 m-4">
-                <label htmlFor="searchBar"></label>
-                <input className="border-4 w-full placeholder-slate-600 font-bold p-2" 
-                type="text" 
-                placeholder="Search" 
-                id="searchBar" 
-                name="SearchBar"  
-                value={searchTerm}
-                onChange={handleInputChange}/>
+            <label htmlFor="searchBar"></label>
+            <input className="border-4 w-full placeholder-slate-600 font-bold p-2" 
+            type="text" 
+            placeholder="Search" 
+            id="searchBar" 
+            name="SearchBar"  
+            value={searchTerm}
+            onChange={handleInputChange}/>
             </form>
+        
+
+            
             {filteredEmails.map(email => (
                 <EmailSummary  
                     key={email.id}
@@ -46,6 +51,7 @@ useEffect(getEmails, [])
                     read={email.read}
                 />
             ))}
+           
         </div>
     )
 }

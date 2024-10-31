@@ -34,7 +34,7 @@ function OpenEmails(){
             <div className="pt-5 font-bold 
             flex flex-row justify-between">
                 <h4>{emailFromName}</h4>
-                <p>{emailDate}</p>
+                <p>{`${emailDate.split(" ")[0].split("-").reverse().join("/")}`}</p>
             </div>
             <h5 className="py-2 font-bold">{emailFrom}</h5>
             <h3 className="text-2xl font-semibold">{emailSubject}</h3>

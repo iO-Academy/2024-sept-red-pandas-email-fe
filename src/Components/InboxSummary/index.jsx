@@ -15,7 +15,7 @@ function InboxSummary () {
     useEffect(getEmails, [])
 
     return (
-        <div className="pt-16">
+        <div>
             {emails.map(email => {
                 return (
                     <EmailSummary  

@@ -19,7 +19,8 @@ function InboxSummary () {
             {emails.map(email => {
                 return (
                     <EmailSummary  
-                        key={email.email}
+                        key={email.id}
+                        id={email.id}
                         name={email.name}
                         subject={email.subject}
                         body={email.body}

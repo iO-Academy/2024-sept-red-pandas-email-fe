@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import EmailSummary from "../../Components/EmailSummary"
 
-
-function DeleteSummary () {
+function DeleteSummary() {
     
     const [emailsDeleted, setEmailsDeleted] = useState([])
 
@@ -11,7 +10,6 @@ function DeleteSummary () {
         .then(res => res.json())
         .then(data => {
             setEmailsDeleted(data.data)
-            console.log(data)
         })
     }
 

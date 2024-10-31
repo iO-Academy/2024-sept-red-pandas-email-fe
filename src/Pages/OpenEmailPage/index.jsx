@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import GreyButton from "../../Components/GreyButton"
+import DeleteButton from "../../Components/DeleteButton"
 
 function OpenEmails(){
     const { id } = useParams()
@@ -27,9 +28,11 @@ function OpenEmails(){
 
     return (
         <main className="my-6 border-y-4 border-slate-100 px-6">
-            <div className="grid justify-items-end pt-4"> 
+            <div className="grid justify-items-end pt-4 gap-4"> 
                 <GreyButton link="/" text="Return to Inbox"> 
                 </GreyButton> 
+                <DeleteButton link="/" text="Delete"> 
+                </DeleteButton>
             </div>
             <div className="pt-5 font-bold 
             flex flex-row justify-between">

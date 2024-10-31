@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import EmailSummary from "../EmailSummary"
+import NavLinks from "../NavLinks"
 
 function InboxSummary () {
     const [emails, setEmails] = useState([])
@@ -15,12 +16,15 @@ function InboxSummary () {
     useEffect(getEmails, [])
 
     return (
-        <div className="pt-16">
-            {emails.map(email => {
+        <div className="lg:flex lg:justify-end">
+            <div className="hidden lg:block">
+                <NavLinks />
+            </div>
+            <div className="lg:w-5/6">
+                {emails.map(email => {
                 return (
                     <EmailSummary  
-                        key={email.id}
-                        id={email.id}
+                        key={email.email}
                         name={email.name}
                         subject={email.subject}
                         body={email.body}
@@ -29,6 +33,8 @@ function InboxSummary () {
                     />
                 )
             })}
+            </div>
+            
         </div>
     )
 }

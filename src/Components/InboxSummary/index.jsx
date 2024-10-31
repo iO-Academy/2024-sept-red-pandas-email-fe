@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import EmailSummary from "../EmailSummary"
+import SearchBar from "../SearchBar"
 
 function InboxSummary () {
     const [emails, setEmails] = useState([])
@@ -10,37 +11,20 @@ function InboxSummary () {
         }
 
     function getEmails() {
-        fetch('https://email-client-api.dev.io-academy.uk/emails')
-        .then(res => res.json())
-        .then(data => {
-            setEmails(data.data)
-        })
-    }
+            fetch(`https://email-client-api.dev.io-academy.uk/emails?search=${searchTerm}`)
+                .then(res => res.json())
+                .then(data => {
+                    setEmails(data.data)
+                   
+                })
+        }
 
-    useEffect(getEmails, [])
-
-    const filteredEmails = emails.filter(email =>
-        email.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        email.subject.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        email.body.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    useEffect(getEmails, [searchTerm])
 
     return (
         <div>
-            <form className="pt-2 m-4">
-            <label htmlFor="searchBar"></label>
-            <input className="border-4 w-full placeholder-slate-600 font-bold p-2" 
-            type="text" 
-            placeholder="Search" 
-            id="searchBar" 
-            name="SearchBar"  
-            value={searchTerm}
-            onChange={handleInputChange}/>
-            </form>
-        
-
-            
-            {filteredEmails.map(email => (
+            <SearchBar searchTerm={searchTerm} handleInputChange={handleInputChange}/>
+            {emails.map(email => (
                 <EmailSummary  
                     key={email.id}
                     id={email.id}

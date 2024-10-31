@@ -1,6 +1,3 @@
-// Note for the next TEAM:1. For function's you have console.log() to see in console what is happening
-// Note for the next TEAM:2. In this Form component you will find The Form and the Buttons
-// Note for the next TEAM:3. You will find comments before Function for what are they and so on
 import {useState} from "react"
 import TextInput from "../../Components/TextInput"
 
@@ -12,7 +9,6 @@ function Form() {
     const [cancel, setCancel] = useState(false)
     const [error, setError] = useState(false)
 
-    // Function for cancel button ->
     const handleCancel = () => {
         setEmail("")
         setSubject("")
@@ -21,30 +17,31 @@ function Form() {
         setSend(false)
     }
 
-    // Function for Send button ->
     const handleSend = (e) => {
-        e.preventDefault ()
+        e.preventDefault()
         if (email.trim() && subject.trim() && textArea.trim()) {
-            setSend(true)
-            setCancel(false)
+            const newEmail = {
+                email,
+                subject,
+                body: textArea,
+                name: "MrBloggs",
+                date: new Date().toLocaleString()
+            }
 
-            // Data sending to API
             fetch("https://email-client-api.dev.io-academy.uk/emails", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
                 },
-                body: JSON.stringify({
-                    email: email,
-                    subject: subject,
-                    body: textArea,
-                    name: "MrBloggs",
-                })
+                body: JSON.stringify(newEmail)
             })
                 .then((response) => response.json())
-                .then((data) => {
-                    setSend(true) // confirmation for sent data
+                .then(() => {
+                    setSend(true)
                     setError(false)
+                    setEmail("")
+                    setSubject("")
+                    setTextArea("")
                 })
                 .catch(() => {
                     setSend(false)
@@ -59,22 +56,22 @@ function Form() {
             <form onSubmit={handleSend} className="flex flex-col space-y-4 gap-3 ml-3">
             <label>
                 <div>
-                <TextInput 
+                <TextInput
                         placeholder="To"
                         type="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}/>
                 </div>
-                    
+
                 </label>
                 <label>
                     <div>
-                        <TextInput 
+                        <TextInput
                             placeholder="Subject"
                             type="text"
                             value={subject}
-                            onChange={(e) => setSubject(e.target.value)}/>    
-                    </div>  
+                            onChange={(e) => setSubject(e.target.value)}/>
+                    </div>
                 </label>
                 <label>
                     <textarea

@@ -1,34 +1,29 @@
 import { useEffect, useState } from "react"
 import EmailSummary from "../EmailSummary"
 import NavLinks from "../NavLinks"
-import SearchBar from "../SearchBar"
 
-function InboxSummary () {
+function SentEmails () {
     const [emails, setEmails] = useState([])
-    const [searchTerm, setSearchTerm] = useState("")
-    const handleInputChange = (event) => {
-        setSearchTerm(event.target.value)
-    }
 
     function getEmails() {
-            fetch(`https://email-client-api.dev.io-academy.uk/emails?search=${searchTerm}`)
-                .then(res => res.json())
-                .then(data => {
-                    setEmails(data.data)
-                })
-        }
+        fetch('https://email-client-api.dev.io-academy.uk/emails/sent')
+            .then(res => res.json())
+            .then(data => {
+                setEmails(data.data)
+            })
+    }
 
-    useEffect(getEmails, [searchTerm])
+    useEffect(getEmails, [])
+
     return (
         <div className="lg:flex lg:justify-end lg:bg-modal-blue">
             <div className="hidden lg:block">
                 <NavLinks />
             </div>
-            <div className="lg:w-5/6 bg-white">
-                <SearchBar searchTerm={searchTerm} handleInputChange={handleInputChange}/>
+            <div className="lg:w-5/6 border-t-2 border-white">
                 {emails.map(email => {
                     return (
-                        <EmailSummary  
+                        <EmailSummary
                             key={email.id}
                             id={email.id}
                             name={email.name}
@@ -44,4 +39,4 @@ function InboxSummary () {
     )
 }
 
-export default InboxSummary
+export default SentEmails

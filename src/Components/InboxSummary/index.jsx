@@ -5,7 +5,6 @@ import SearchBar from "../SearchBar"
 function InboxSummary () {
     const [emails, setEmails] = useState([])
     const [searchTerm, setSearchTerm] = useState("")
-
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value)
         }
@@ -20,7 +19,6 @@ function InboxSummary () {
         }
 
     useEffect(getEmails, [searchTerm])
-
     return (
         <div>
             <SearchBar searchTerm={searchTerm} handleInputChange={handleInputChange}/>
@@ -34,8 +32,7 @@ function InboxSummary () {
                     date={email.date_created}
                     read={email.read}
                 />
-            ))}
-           
+            ))} 
         </div>
     )
 }

@@ -14,7 +14,6 @@ function InboxSummary () {
                 .then(res => res.json())
                 .then(data => {
                     setEmails(data.data)
-                   
                 })
         }
 

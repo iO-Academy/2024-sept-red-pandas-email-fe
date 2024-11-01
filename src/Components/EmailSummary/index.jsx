@@ -9,8 +9,8 @@ function EmailSummary ({id, name, subject, body, date, read, handleClick}) {
                 <p>{body.slice(0, 22) + "..."}</p>
             </div>
             <div className="text-right w-40 font-bold">
-            <p>{`${date.split(" ")[0].split("-").reverse().join("/")}`}</p>
-            </div>
+                <p>{`${date.split(" ")[0].split("-").reverse().join("/")}`}</p>
+            </div>  
         </Link>
     )
 }

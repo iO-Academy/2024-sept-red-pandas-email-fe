@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom"
 
 function NavLinks({handleClick, getEmailsDeleted}) {
+    // Combine both functions into one that is triggered on click
+    const handleDeletedClick = () => {
+        // Execute both functions to ensure the modal closes and emails are fetched
+        handleClick()
+        getEmailsDeleted()
+    }
     return(
         <div>
-            <nav className='bg-modal-blue text-white fixed right-2/4 top-20 w-1/2 h-screen pl-4 pt-8 flex flex-col gap-y-10 lg:w-1/6 lg:left-0'>
+            <nav className='bg-modal-blue text-white fixed left-0 top-20 w-1/2 h-screen pl-4 pt-8 flex flex-col gap-y-10 lg:w-1/6'>
                 <Link to="/" onClick={handleClick}>Inbox</Link>
-                <Link to="/deleted" onClick={getEmailsDeleted}>Deleted</Link>
+                <Link to="/deleted" onClick={handleDeletedClick}>Deleted</Link>
             </nav>
         </div>
     )

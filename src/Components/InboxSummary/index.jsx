@@ -9,25 +9,24 @@ function InboxSummary () {
 
     const handleInputChange = (event) => {
         setSearchTerm(event.target.value)
-        }
+    }
 
     function getEmails() {
             fetch(`https://email-client-api.dev.io-academy.uk/emails?search=${searchTerm}`)
                 .then(res => res.json())
                 .then(data => {
                     setEmails(data.data)
-                   
                 })
         }
 
     useEffect(getEmails, [searchTerm])
 
     return (
-        <div className="lg:flex lg:justify-end">
+        <div className="lg:flex lg:justify-end lg:bg-modal-blue">
             <div className="hidden lg:block">
                 <NavLinks />
             </div>
-            <div className="lg:w-5/6">
+            <div className="lg:w-5/6 bg-white">
                 <SearchBar searchTerm={searchTerm} handleInputChange={handleInputChange}/>
                 {emails.map(email => {
                     return (

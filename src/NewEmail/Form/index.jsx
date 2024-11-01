@@ -24,8 +24,7 @@ function Form() {
                 email,
                 subject,
                 body: textArea,
-                name: "MrBloggs",
-                date: new Date().toLocaleString()
+                name: "MrBloggs"
             }
 
             fetch("https://email-client-api.dev.io-academy.uk/emails", {

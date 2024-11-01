@@ -5,7 +5,7 @@ function SentEmails () {
     const [emails, setEmails] = useState([])
 
     function getEmails() {
-        fetch('https://email-client-api.dev.io-academy.uk/emails')
+        fetch('https://email-client-api.dev.io-academy.uk/emails/sent')
             .then(res => res.json())
             .then(data => {
                 setEmails(data.data)

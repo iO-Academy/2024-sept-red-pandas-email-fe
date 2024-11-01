@@ -20,7 +20,7 @@ function DeleteSummary() {
             <div className="hidden lg:block">
                 <NavLinks />
             </div>
-            <div className="lg:w-5/6 border-t-2 border-white">
+            <div className="lg:w-5/6 border-t-2 border-white lg:bg-white">
                 {emailsDeleted.map(email => {
                     return (
                         <EmailSummary  
